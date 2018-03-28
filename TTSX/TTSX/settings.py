@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'tt_goods',
     'tt_order',
     'tt_user',
+    'tinymce',#不懂？？？？？？
 )
 
 MIDDLEWARE_CLASSES = (
@@ -74,12 +75,13 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'untitled.wsgi.application'
+WSGI_APPLICATION = 'TTSX.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
+#数据库
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -110,3 +112,22 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS=[
+    os.path.join(BASE_DIR,'static')
+]
+
+
+# 不懂？？？？？？
+AUTH_USER_MODEL ='tt_user.User'
+
+#不懂？？？？？？
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.163.com'
+EMAIL_PORT = 25
+#发送邮件的邮箱
+EMAIL_HOST_USER = 'itcast88@163.com'
+#在邮箱中设置的客户端授权密码
+EMAIL_HOST_PASSWORD = 'python2018'
+#收件人看到的发件人
+EMAIL_FROM = '天天生鲜<itcast88@163.com>'
+
